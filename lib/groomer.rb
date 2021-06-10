@@ -20,7 +20,6 @@ class Groomer
 
   def count_pets_by_type(type)
     count = 0
-    require "pry"; binding.pry
 
     pets = @customers.map do |customer|
       customer.pets

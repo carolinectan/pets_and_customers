@@ -42,23 +42,24 @@ RSpec.describe Daycare do
 
   it 'can return the pets of a customer' do
     expect(@daycare1.pets('Megan')).to eq([@leia])
-    expect(@daycare1.pets('Joni')).to eq([@bosco])
-    expect(@daycare1.pets('John')).to eq([@jack, @potato])
+    expect(@daycare2.pets('Joni')).to eq([@bosco])
+    expect(@daycare2.pets('John')).to eq([@jack, @potato])
   end
 
-  xit 'can find a customer by the customer id' do
-    expect(@daycare1)
+  it 'can find a customer by the customer id' do
+    expect(@daycare1.find_customer_by_id(5462)).to eq(@megan)
+    expect(@daycare2.find_customer_by_id(9486)).to eq(@joni)
+    expect(@daycare2.find_customer_by_id(3249)).to eq(@john)
   end
 
-  xit 'can return a list of all pets that are unfed' do
-
+  it 'can return a list of all pets that are unfed' do
+    expect(@daycare1.unfed_pets).to eq([@leia])
+    @leia.feed
+    expect(@daycare1.unfed_pets).to eq([])
   end
 end
 
-
 # Iteration 3
-# Each Day Care has multiple customers, and each of those customers can have multiple pets.
-# A Day Care can find a customer by the customer's id
 # A Day Care can list all pets that are unfed
 
 # Iteration 4

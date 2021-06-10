@@ -27,7 +27,7 @@ RSpec.describe Customer do
     expect(@joel.pets).to eq([@samson, @lucy])
   end
 
-  it 'can return customer's outstanding balance' do
+  it 'can return outstanding balance of customer' do
     expect(@joel.outstanding_balance).to eq(0)
 
     @joel.charge(15)

@@ -19,16 +19,18 @@ class Groomer
   end
 
   def count_pets_by_type(type)
-    type_count = 0
+    count = 0
+    require "pry"; binding.pry
 
-    @customers.select do |customer|
-      customer.pets.select do |pet|
-        if pet.type == :dog
-          dog_count += 1
-        elsif pet.type == :cat
-          cat_count += 1
-        end
+    pets = @customers.map do |customer|
+      customer.pets
+    end.flatten
+
+    pets.each do |pet|
+      if pet.type == type
+        count+=1
       end
     end
+    count
   end
 end

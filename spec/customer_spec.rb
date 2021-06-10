@@ -1,6 +1,6 @@
 require 'rspec'
-require './lib/customer'
 require './lib/pet'
+require './lib/customer'
 
 RSpec.describe Customer do
   before :each do

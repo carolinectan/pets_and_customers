@@ -1,6 +1,6 @@
 require 'rspec'
-require './lib/customer'
 require './lib/pet'
+require './lib/customer'
 require './lib/groomer'
 
 RSpec.describe Groomer do
@@ -46,7 +46,6 @@ RSpec.describe Groomer do
     expect(@joni.pets).to eq([@bosco])
     expect(@carey.pets).to eq([@chicken, @squirrel])
     expect(@john.pets).to eq([@jack])
-
   end
 
   it "can determine customers with outstanding balances" do
@@ -65,14 +64,16 @@ RSpec.describe Groomer do
   end
 
   it "can count the number of pets of a given type" do
-    expect(@wagstoriches.count_pets_by_type(:dogs)).to eq(2)
-    expect(@wagstoriches.count_pets_by_type(:cats)).to eq(0)
+    expect(@wagstoriches.count_pets_by_type(:dog)).to eq(2)
+    expect(@wagstoriches.count_pets_by_type(:cat)).to eq(0)
 
-    expect(@wagstoriches.count_pets_by_type).to eq()
+    expect(@scruffytofluffy.count_pets_by_type(:dog)).to eq(1)
+    expect(@scruffytofluffy.count_pets_by_type(:cat)).to eq(2)
   end
 end
 
-
-# A Groomer can count the number of pets of a given type. For example the
-# groomer can count the number of cats, the number of dogs, etc. This should
-# work for any pet type.
+# Iteration 4:
+# The pet grooming company would like to be able to track more information on charges.
+# They want to be able to track what the charge was for, for example washing, hair cut, etc.
+# They also want to know which customer the charge applies to, which pet the charge applies to,
+# and the amount of the charge.

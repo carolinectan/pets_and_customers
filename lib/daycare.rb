@@ -12,19 +12,15 @@ class Daycare
     end
   end
 
-  # def pets(customer)
-  #   customer.pets
-  # end
-
   def pets(name)
-    customer_array = @customers.select do |customer|
+    @customers.find do |customer|
       customer.name == name
-    end
+    end.pets
+  end
 
-    customer_array.flat_map do |customer|
-      customer.pets
+  def find_customer_by_id(id)
+    @customers.find do |customer|
+      customer.id == id
     end
-    # require "pry"; binding.pry
-
   end
 end
